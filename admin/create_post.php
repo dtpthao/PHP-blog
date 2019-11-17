@@ -1,5 +1,5 @@
 <?php require_once("../config.php"); ?>
-<?php require_once(ADMIN_PATH . "includes/db_functions.php"); ?>
+<?php require_once(DB_PATH . "/admin_functions.php"); ?>
 
 <!-- Header -->
 <?php require_once(ROOT_PATH . "/includes/header.php"); ?>
