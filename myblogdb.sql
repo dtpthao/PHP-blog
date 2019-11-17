@@ -12,12 +12,12 @@ CREATE TABLE `users` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`username` VARCHAR(255) NOT NULL UNIQUE,
 	`email` VARCHAR(255) NOT NULL UNIQUE,
-	`passwd` VARCHAR(255) NOT NULL,
-	`role` ENUM('admin', 'user') DEFAULT 'user'
+	`role` ENUM('admin', 'user') DEFAULT 'user',
+	`password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=LATIN1;
 
-INSERT INTO `users` (`id`, `username`, `email`, `passwd`, `role`) 
-VALUES (1, 'Thao', 'thao@thao.com', 'thaothaothao', 'admin');
+INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`) 
+VALUES (1, 'Thao', 'thao@thao.com', 'admin', 'thaothao');
 
 -- ---------------------------------------------------------------
 
@@ -33,7 +33,7 @@ VALUES (2, 'noidea');
 INSERT INTO `topics` (`id`, `topic`) 
 VALUES (3, 'whatever');
 
--- ---------------------------------------------------------------
+-- -- ---------------------------------------------------------------
 
 CREATE TABLE `posts`(
 	`id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,

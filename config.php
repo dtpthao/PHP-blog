@@ -9,5 +9,6 @@ if (!$conn){
 }
 
 define("ROOT_PATH", realpath(dirname(__FILE__)));
+define("ADMIN_PATH", ROOT_PATH . "/admin/");
 
 ?>
