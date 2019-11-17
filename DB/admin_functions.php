@@ -10,7 +10,7 @@ if (isset($_POST["create_post_btn"])) {
 }
 
 if (isset($_POST["edit_post_btn"])) {
-    editPost($_POST);
+    editPost($_POST); //not writen yet
 }
 
 if (isset($_GET["delete-pid"])) {

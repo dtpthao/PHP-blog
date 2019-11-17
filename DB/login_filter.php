@@ -18,7 +18,7 @@ if (isset($_POST['login_btn'])) {
         array_push($errors, 'Password required');
     }
     if (empty($errors)) {
-        // $password = md5($password);
+        $password = md5($password);
         $query = "SELECT * FROM users WHERE username='$username' AND password = '$password' LIMIT 1";
 
         $result = mysqli_query($conn, $query);
