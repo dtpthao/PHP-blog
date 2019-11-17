@@ -18,6 +18,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`) 
 VALUES (1, 'Thao', 'thao@thao.com', 'admin', 'thaothao');
+INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`) 
+VALUES (2, 'user', 'user@user.com', 'user', 'user');
 
 -- ---------------------------------------------------------------
 
@@ -27,11 +29,11 @@ CREATE TABLE `topics` (
 ) ENGINE=InnoDB DEFAULT CHARSET=LATIN1;
 
 INSERT INTO `topics` (`id`, `topic`) 
-VALUES (1, 'dunno');
+VALUES (1, 'rice');
 INSERT INTO `topics` (`id`, `topic`) 
-VALUES (2, 'noidea');
+VALUES (2, 'noodle');
 INSERT INTO `topics` (`id`, `topic`) 
-VALUES (3, 'whatever');
+VALUES (3, 'fastfood');
 
 -- -- ---------------------------------------------------------------
 
@@ -43,7 +45,7 @@ CREATE TABLE `posts`(
 	`views` INT(11) NOT NULL DEFAULT '0',
 	`content` TEXT NOT NULL,
 	`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	`updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`updated_at` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00',
 	FOREIGN KEY (`uid`) REFERENCES `users`(`id`)
 		ON DELETE CASCADE
 		ON UPDATE RESTRICT,
@@ -53,4 +55,8 @@ CREATE TABLE `posts`(
 ) ENGINE=InnoDB DEFAULT CHARSET=LATIN1;
 
 INSERT INTO `posts` (`id`, `uid`, `tid`, `title`, `views`, `content`, `created_at`, `updated_at`) 
-VALUES (1, 1, 2, 'POST 1', 0, 'content', '2019-13-11 00:00:00', '2019-13-11 00:00:00');
+VALUES (1, 1, 2, 'Breakfast', 0, 'content', '2019-13-11 07:00:00', '2019-13-11 00:00:00');
+INSERT INTO `posts` (`id`, `uid`, `tid`, `title`, `views`, `content`, `created_at`, `updated_at`) 
+VALUES (2, 2, 3, 'Lunch', 0, 'content', '2019-13-11 12:00:00', '2019-13-11 00:00:00');
+INSERT INTO `posts` (`id`, `uid`, `tid`, `title`, `views`, `content`, `created_at`, `updated_at`) 
+VALUES (3, 2, 1, 'Dinner', 0, 'content', '2019-13-11 19:00:00', '2019-13-11 00:00:00');

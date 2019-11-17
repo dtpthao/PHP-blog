@@ -14,6 +14,44 @@ function getAllUsers(){
     }
 }
 
+function getUserById($uid) {
+    global $conn;
+    $user = array();
+    
+    $query = "SELECT * FROM users WHERE id='$uid'";
+    $result = mysqli_query($conn, $query);
+    $user = mysqli_fetch_assoc($result);
+
+    return $user;
+}
+
+//////////////////////////////////////////////////////////////
+
+function getAllTopics() {
+    global $conn;
+    $topics = array();
+
+    $query = "SELECT * FROM topics";
+    $result = mysqli_query($conn, $query);
+    $topics = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    if (empty($topics)) return NULL;
+    else return $topics;
+}
+
+function getTopicById($tid) {
+    global $conn;
+    $topic = array();
+    
+    $query = "SELECT * FROM topics WHERE id='$tid'";
+    $result = mysqli_query($conn, $query);
+    $topic = mysqli_fetch_assoc($result);
+
+    return $topic;
+}
+
+//////////////////////////////////////////////////////////////
+
 function getAllPosts(){
     global $conn;
     $posts = array();
@@ -25,35 +63,18 @@ function getAllPosts(){
     if (empty($posts)) {
         echo "BUG!";
         return NULL;
-    } else {
-        foreach ($posts as $post) {
-            $post["user"] = getUserById($post["uid"])["username"];
-            $post["topic"] = getTopicById($post["tid"])["topic"];
-        }
-        return $posts;
-    }
+    } else return $posts;
 }
 
-function getUserById($id) {
+function getPostById($pid) {
     global $conn;
-    $user = array();
-    
-    $query = "SELECT * FROM users WHERE id='$id'";
+    $post = array();
+
+    $query = "SELECT * FROM posts WHERE id='$pid'";
     $result = mysqli_query($conn, $query);
-    $user = mysqli_fetch_assoc($result);
+    $post = mysqli_fetch_assoc($result);
 
-    return $user;
-}
-
-function getTopicById($id) {
-    global $conn;
-    $topic = array();
-    
-    $query = "SELECT * FROM topics WHERE id='$id'";
-    $result = mysqli_query($conn, $query);
-    $topic = mysqli_fetch_assoc($result);
-
-    return $topic;
+    return $post;
 }
 
 ?>

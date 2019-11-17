@@ -7,9 +7,7 @@
 
 <section>
     <!-- navbar -->
-    <nav>
-        <?php include("includes/navbar.php"); ?>
-    </nav>
+    <?php include("includes/navbar.php"); ?>
     <!-- end navbar -->
 
     <article>

@@ -7,9 +7,7 @@
 
 <section>
     <!-- navbar -->
-    <nav>
-        <?php include("includes/navbar.php"); ?>
-    </nav>
+    <?php include("includes/navbar.php"); ?>
     <!-- end navbar -->
 
     <article>
@@ -35,8 +33,7 @@
                         <?php echo $post['id']; ?>
                     </th>
                     <th>
-                        <a
-                            href="<?php echo ADMIN_PATH . 'edit_post.php?pid=' . $post['id']?>"><?php echo $post['title'] ?></a>
+                        <a href="<?php echo 'edit_post.php?pid=' . $post['id']?>"><?php echo $post['title'] ?></a>
                     </th>
                     <th>
                         <?php echo getTopicById($post["tid"])["topic"]; ?>
@@ -56,6 +53,7 @@
                 <?php } ?>
             </tbody>
         </table>
+        <a href="../create_post.php">Create new post</a>
     </article>
 </section>
 
