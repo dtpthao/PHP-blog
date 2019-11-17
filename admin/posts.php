@@ -1,5 +1,5 @@
 <?php require_once("../config.php"); ?>
-<?php require_once(ADMIN_PATH . "includes/functions.php"); ?>
+<?php require_once(ADMIN_PATH . "includes/db_functions.php"); ?>
 
 <!-- Header -->
 <?php require_once(ROOT_PATH . "/includes/header.php"); ?>
@@ -53,7 +53,7 @@
                 <?php } ?>
             </tbody>
         </table>
-        <a href="../create_post.php">Create new post</a>
+        <a href="create_post.php">Create new post</a>
     </article>
 </section>
 

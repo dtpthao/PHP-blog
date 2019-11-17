@@ -11,45 +11,34 @@
     <!-- end navbar -->
 
     <article>
-        <?php $post = getPostById($_GET['pid']); ?>
         <?php $topics = getAllTopics(); ?>
-        <h2><?php echo $post["title"]; ?></h2>
+        <h2>New Post</h2>
 
-        <form action="edit_post.php" method="post">
+        <form action="create_post.php" method="post">
             <div style="width:80%; margin:0px auto;">
+                <?php foreach ($errors as $error) { ?>
+                <p style="color:red"><?php echo $error ?></p>
+                <?php } ?>
                 <table>
                     <tr>
                         <td>Title</td>
-                        <td><input type="text" name="title" value="<?php echo $post['title'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Views</td>
-                        <td><?php echo $post['views'] ?></td>
+                        <td><input type="text" name="title" placeholder="Title"></td>
                     </tr>
                     <tr>
                         <td>Topic</td>
-                        <td><select name="topic">
-                                <option value="<?php echo $post['tid'] ?>" selected disabled>
-                                    <?php echo getTopicById($post['tid'])['topic'] ?></option>
+                        <td><select name="tid">
+                                <option value="" selected disabled>Choose topic</option>
                                 <?php foreach ($topics as $topic) { ?>
                                 <option value="<?php echo $topic['id'] ?>"><?php echo $topic['topic'] ?></option>
                                 <?php } ?>
                             </select></td>
                     </tr>
                     <tr>
-                        <td>Created</td>
-                        <td><?php echo $post['created_at'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Updated</td>
-                        <td><?php echo $post['updated_at'] ?></td>
-                    </tr>
-                    <tr>
                         <td>Content</td>
-                        <td><textarea name="content" cols="30" rows="10"><?php echo $post['content'] ?></textarea></td>
+                        <td><textarea name="content" id="body" cols="30" rows="10"></textarea></td>
                     </tr>
                 </table>
-                <button type="submit" name="edit_post_btn">Save</button>
+                <button type="submit" name="create_post_btn">Save</button>
             </div>
         </form>
     </article>

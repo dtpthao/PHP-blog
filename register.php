@@ -20,7 +20,7 @@
         <form action="register.php" method="post">
             <div style="width: 60%; margin: 0px auto;">
                 <?php foreach ($errors as $error) { ?>
-                    <p style="color:red"><?php echo $error ?></p>
+                <p style="color:red"><?php echo $error ?></p>
                 <?php } ?>
 
                 <input type='text' name='username' value='<?php echo $username;?>' placeholder='Username'></br>
@@ -37,6 +37,7 @@
 
                 <button type='submit' name='register_btn'>Register</button>
                 <a href="login.php">Sign in</a>
+            </div>
         </form>
     </article>
 </section>
