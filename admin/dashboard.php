@@ -7,23 +7,33 @@
 <section>
     <!-- navbar -->
     <nav>
+        <h2>Edit</h2>
         <ul>
-			<?php require_once(ROOT_PATH . "/includes/navbar.php"); ?>
-			
-            <?php if (empty($_SESSION['user'])) { ?>
-            <li><a href="<?php echo 'login.php' ?>">Login</a></li>
-            <?php } else {?>
-            <li><a href="<?php echo 'logout.php' ?>">Logout</a></li>
-            <?php } ?>
+            <li><a href="users.php">Users</a></li>
+            <li><a href="articles.php">Articles</a></li>
+            <li><a href="../logout.php">Logout</a></li>
         </ul>
     </nav>
     <!-- end navbar -->
 
     <article>
-        <?php if (isset($_SESSION['user'])) { ?>
-        <h2>Hello <?php echo $_SESSION['user']['username']; ?></h2>
-        <?php } ?>
-        <h1>Recent Articles</h1>
+        <?php $user = $_SESSION['user']; ?>
+        <h2>Edit profile</h2>
+
+        <form action="dashboard.php" method="post">
+            <div style="width:60%; margin:0px auto;">
+                <input type="text" name="username" value="<?php echo $user['username'] ?>"></br>
+                <input type="email" name="email" value="<?php echo $user['email'] ?>"></br>
+                <select name="roles" value="<?php echo $user['admin'];?>">Role
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select></br>
+                <input type="password" name="password" placeholder="Current password"></br>
+                <input type="password" name="newpass1" placeholder="New password"></br>
+                <input type="password" name="newpass2" placeholder="Confirm new password"></br>
+                <button type="submit" name="edit_user_btn">Save</button>
+                <a href="dashboard.php">Cancel</a>
+            </div>
     </article>
 </section>
 

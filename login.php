@@ -33,6 +33,7 @@
                 <input type='password' name='password' placeholder='Password'> </br>
                 <button type='submit' name='login_btn'>Sign in </button>
                 <a href="register.php">Sign up</a>
+            </div>
         </form>
     </article>
 </section>
