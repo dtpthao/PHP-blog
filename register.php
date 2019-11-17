@@ -1,5 +1,5 @@
 <?php require_once("config.php"); ?>
-<?php require_once(ROOT_PATH . "/includes/login_filter.php"); ?>
+<?php require_once(DB_PATH . "login_filter.php"); ?>
 
 <!-- Header -->
 <?php require_once(ROOT_PATH . "/includes/header.php"); ?>
@@ -8,11 +8,7 @@
 
 <section>
     <!-- navbar -->
-    <nav>
-        <ul>
-            <?php require_once(ROOT_PATH . "/includes/navbar.php"); ?>
-        </ul>
-    </nav>
+    <?php require_once(ROOT_PATH . "/includes/navbar.php"); ?>
     <!-- end navbar -->
 
     <article>
