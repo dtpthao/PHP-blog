@@ -4,6 +4,7 @@ $username = "";
 $email    = "";
 $errors = array();
 
+// LOGIN
 if (isset($_POST['login_btn'])) {
     $username = esc($_POST['username']);
     $password = esc($_POST['password']);
@@ -21,13 +22,18 @@ if (isset($_POST['login_btn'])) {
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {
             $_SESSION['user'] = mysqli_fetch_assoc($result);
-            header('location: index.php');
+            if ($_SESSION['user']['role'] == "admin") {
+                header('location: admin/dashboard.php');
+            } else {
+                header('location: index.php');
+            }
         } else {
             array_push($errors, 'Wrong credentials');
         }
     }
 }
 
+// REGISTRATION
 if (isset($_POST['register_btn'])){
     $username = esc($_POST['username']);
     $email    = esc($_POST['email']);
