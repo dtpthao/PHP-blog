@@ -26,8 +26,8 @@
     /* Create two columns/boxes that floats next to each other */
     nav {
         float: left;
-        width: 30%;
-        /* height: 300px; */
+        width: 20%;
+        height: 500px;
         /* only for demonstration, should be removed */
         background: #ccc;
         padding: 20px;
@@ -42,9 +42,9 @@
     article {
         float: left;
         padding: 20px;
-        width: 70%;
+        width: 80%;
         background-color: #f1f1f1;
-        /* height: 300px; */
+        height: 500px;
         /* only for demonstration, should be removed */
     }
 
@@ -78,5 +78,9 @@
 <body>
 
     <header>
-        <h1>Header</h1>
+        <?php if (isset($_SESSION['user'])) { ?>
+        <h2>Hello <?php echo $_SESSION['user']['username']; ?></h2>
+        <?php } else {?>
+        <h2>Header</h2>
+        <?php } ?>
     </header>

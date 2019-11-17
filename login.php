@@ -8,11 +8,7 @@
 
 <section>
     <!-- navbar -->
-    <nav>
-        <ul>
-            <?php require_once(ROOT_PATH . "/includes/navbar.php"); ?>
-        </ul>
-    </nav>
+    <?php require_once(ROOT_PATH . "/includes/navbar.php"); ?>
     <!-- end navbar -->
 
     <article>

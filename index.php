@@ -8,17 +8,7 @@
 
 <section>
     <!-- navbar -->
-    <nav>
-        <ul>
-			<?php require_once(ROOT_PATH . "/includes/navbar.php"); ?>
-			
-            <?php if (empty($_SESSION['user'])) { ?>
-            <li><a href="<?php echo 'login.php' ?>">Login</a></li>
-            <?php } else {?>
-            <li><a href="<?php echo 'logout.php' ?>">Logout</a></li>
-            <?php } ?>
-        </ul>
-    </nav>
+    <?php require_once(ROOT_PATH . "/includes/navbar.php"); ?>
     <!-- end navbar -->
 
     <article>

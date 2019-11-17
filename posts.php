@@ -1,4 +1,4 @@
-<?php require_once("../config.php"); ?>
+<?php require_once("config.php"); ?>
 <?php require_once(DB_PATH . "admin_functions.php"); ?>
 
 <!-- Header -->
@@ -24,7 +24,7 @@
                     <th>Author</th>
                     <th>Created</th>
                     <th>Updated</th>
-                    <th colspan="2">Change</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -52,14 +52,12 @@
                         <?php echo $post['updated_at']; ?>
                     </th>
                     <th>
-                        <a href="<?php echo 'edit_post.php?pid=' . $post['id']?>">Edit</a>
-                        <a href="<?php echo 'posts.php?delete-pid=' . $post['id']?>">Delete</a>
+                        <a href="<?php echo 'view_post.php?pid=' . $post['id']?>">View</a>
                     </th>
                 </tr>
                 <?php } ?>
             </tbody>
         </table>
-        <a href="create_post.php">Create new post</a>
     </article>
 </section>
 

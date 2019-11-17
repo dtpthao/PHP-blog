@@ -1,5 +1,7 @@
 <?php
 
+require_once("public_functions.php");
+
 $username = "";
 $email    = "";
 $errors = array();
@@ -93,15 +95,3 @@ if (isset($_POST['register_btn'])){
         }
     }
 }
-
-    // escape value from form
-    function esc(String $value)
-    {
-        // bring the global db connect object into function
-        global $conn;
-
-        $val = trim($value); // remove empty space sorrounding string
-        $val = mysqli_real_escape_string($conn, $value);
-
-        return $val;
-    }
